@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex-converter</title>
+    <style>
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        .success,
+        .error {
+            margin: 10px auto;
+            width: 40%;
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .success {
+            background-color: #23CE6B;
+        }
+
+        .error {
+            background-color: #DB3A34;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <form action="/convert" method="POST">
+            <label for="from">Convert from:</label><br>
+            <input type="text" name="from"><br>
+
+            <label for="to">Convert to:</label><br>
+            <input type="text" name="to"><br>
+
+            <label for="amount">Amount:</label><br>
+            <input type="text" name="amount"><br>
+
+            <button>CONVERT</button>
+        </form>
+    </section>
+
+    {% for category, msg in get_flashed_messages(with_categories=true) %}
+    <p class="{{category}}"><b>{{msg}}</b></p>
+    {% endfor %}
+
+</body>
+
+</html>
